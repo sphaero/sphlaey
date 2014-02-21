@@ -5,6 +5,7 @@ void ofApp::setup(){
 	ofBackground(0);
 	ofSetVerticalSync(true);
 	ofSetLogLevel(OF_LOG_VERBOSE);
+	ofHideCursor();
 	frameByframe = false;
 	alpha = 0;
 
@@ -79,6 +80,7 @@ void ofApp::keyPressed  (int key)
 	std::map<int,ofVideoPlayer*>::iterator it;
 	it = videoMap.find(key);
 	if (it == videoMap.end()) return;
+	if (it->second == canvasMovie) return;
 	alpha = 255;
 	fgCanvasMovie = canvasMovie;
 	canvasMovie = it->second;
