@@ -9,6 +9,11 @@ void ofApp::setup(){
 	alpha = 0;
 
 	dir.listDir("movies/");
+	if (dir.size() == 0)
+	{
+		ofLogError("No movies found!!!");
+		ofExit(1);
+	}
 	for(int i = 0; i < (int)dir.size(); i++)
 	{
 		string vpath =  dir.getPath(i);
